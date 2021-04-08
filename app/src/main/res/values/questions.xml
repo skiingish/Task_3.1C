@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="questionOneTitle">SIT305 Quiz App</string>
+    <string name="questionOneQuestion">SIT305 Quiz App</string>
+    <string name="questionOneOpt1">SIT305 Quiz App</string>
+    <string name="questionOneOpt2">SIT305 Quiz App</string>
+    <string name="questionOneOpt3">SIT305 Quiz App</string>
+    <integer name="questionOneCorrectOpt">1</integer>
+</resources>

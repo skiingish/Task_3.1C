@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="top"
+    android:orientation="vertical"
+    android:background="@color/backGroundColor"
+    tools:context=".QuestionsActivity">
+
+    <TextView
+        android:id="@+id/nameHolder_TV"
+        android:text="Welcome Placeholder name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        />
+
+    <LinearLayout
+        android:id="@+id/ll_progress_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/progress_TV"
+            tools:text="0/5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="15dp"
+            android:textColorHint="#7A8089"
+            android:textSize="14sp"
+             />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:progress="0"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:indeterminate="false"
+            android:max="5"
+            android:minHeight="40dp"
+             />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/questionTitle_TV"
+        android:text="Question Title: "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="16dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        />
+
+    <TextView
+        android:id="@+id/question_TV"
+        android:text="Am I a question?"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="16dp"
+        android:textColor="@color/grey"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_marginTop="30dp"
+        >
+
+        <TextView
+            android:id="@+id/option_one_TV"
+            android:layout_width="wrap_content"
+            android:minWidth="240dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="15dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/options_btn_shape_borders"
+            android:textColor="@color/grey"
+            android:textSize="18sp"
+            tools:text="Opt 1" />
+
+        <TextView
+            android:id="@+id/option_two_TV"
+            android:layout_width="wrap_content"
+            android:minWidth="240dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="15dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/options_btn_shape_borders"
+            android:textColor="@color/grey"
+            android:textSize="18sp"
+            tools:text="Opt 2" />
+
+        <TextView
+            android:id="@+id/option_three_TV"
+            android:layout_width="wrap_content"
+            android:minWidth="240dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="15dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/options_btn_shape_borders"
+            android:textColor="@color/grey"
+            android:textSize="18sp"
+            tools:text="Opt 3" />
+
+        <Button
+            android:id="@+id/submit_next_BTN"
+            android:layout_width="wrap_content"
+            android:minWidth="240dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/options_btn_shape_borders"
+            android:text="SUBMIT"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            />
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
