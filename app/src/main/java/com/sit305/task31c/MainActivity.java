@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,12 +17,23 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Find the username field.
+        name_ET = findViewById(R.id.user_name_field);
     }
 
     // Start the game by pressing the start button
     public void startGame(View view) {
+        // Get and set the quiz taker's user name value
+        try {
+            Constants.updateUsername(name_ET.getText().toString());
+        } catch (Exception e) {
+            Toast.makeText(this, e.toString(), Toast.LENGTH_LONG).show();
+        }
         // Create the new intent from the questions activity
         Intent intent = new Intent(this, QuestionsActivity.class);
+        // Send the user's username to the new intent
+        intent.putExtra("username", name_ET.getText().toString());
         // Start the questions activity
         startActivity(intent);
         // Finish the current activity I.e this one.

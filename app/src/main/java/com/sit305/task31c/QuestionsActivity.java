@@ -12,5 +12,9 @@ public class QuestionsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questions);
+
+        // Set the welcome message.
+        TextView nameHolder_TV = findViewById(R.id.nameHolder_TV);
+        nameHolder_TV.setText("Welcome " + Constants.dataList.get(0));
     }
 }

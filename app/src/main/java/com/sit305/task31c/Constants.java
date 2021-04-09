@@ -1,12 +1,16 @@
 package com.sit305.task31c;
 
 import java.util.ArrayList;
+import java.util.List;
 
 // Public interface to store the data of this quiz app to be access anywhere
 public interface Constants {
 
     // The list of different questions
     ArrayList<Question> questionsList = new ArrayList<Question>();
+
+    // Will be used to store a list of data strings
+    List<String> dataList = new ArrayList<String>();
 
     // Public static method to build and return the list of quiz questions
     static ArrayList<Question> getQuestionsList() {
@@ -24,5 +28,10 @@ public interface Constants {
 
         // Return the list of questions after being build.
         return questionsList;
+    }
+
+    // Add the username to string data list.
+    static void updateUsername(String usernameInput) {
+        dataList.add(usernameInput);
     }
 }
