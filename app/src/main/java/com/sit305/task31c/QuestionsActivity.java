@@ -50,6 +50,16 @@ public class QuestionsActivity extends AppCompatActivity {
         TextView nameHolder_TV = findViewById(R.id.nameHolder_TV);
         nameHolder_TV.setText("Welcome " + Constants.dataList.get(0));
 
+        // Build the questions.
+        buildQuestions();
+    }
+
+    private void buildQuestions() {
+
+        // Clear the current selection.
+        clearSelectedOpts();
+
+        // Current question.
         currentPosition = 1;
 
         // Hold the current question being asked.
