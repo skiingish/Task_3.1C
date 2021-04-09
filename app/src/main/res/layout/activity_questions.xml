@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="top"
     android:orientation="vertical"
+    android:padding="16dp"
     android:background="@color/backGroundColor"
     tools:context=".QuestionsActivity">
 
@@ -96,6 +97,7 @@
             android:background="@drawable/options_btn_shape_borders"
             android:textColor="@color/grey"
             android:textSize="18sp"
+            android:onClick="onOptClick"
             tools:text="Opt 1" />
 
         <TextView
@@ -109,6 +111,7 @@
             android:background="@drawable/options_btn_shape_borders"
             android:textColor="@color/grey"
             android:textSize="18sp"
+            android:onClick="onOptClick"
             tools:text="Opt 2" />
 
         <TextView
@@ -122,6 +125,7 @@
             android:background="@drawable/options_btn_shape_borders"
             android:textColor="@color/grey"
             android:textSize="18sp"
+            android:onClick="onOptClick"
             tools:text="Opt 3" />
 
         <Button
