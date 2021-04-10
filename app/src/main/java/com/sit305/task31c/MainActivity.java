@@ -20,16 +20,22 @@ public class MainActivity extends AppCompatActivity {
 
         // Find the username field.
         name_ET = findViewById(R.id.user_name_field);
-    }
 
-    // Start the game by pressing the start button
+        // Check to see if a username already exists, if so set it as the editText.
+        if (Constants.dataList.size() > 0 ) {
+            name_ET.setText(Constants.dataList.get(0));
+        }
+    }
+    // Start the game by pressing the start button.
     public void startGame(View view) {
-        // Get and set the quiz taker's user name value
+        // Get and set (Or update) the quiz taker's user name value.
         try {
             Constants.updateUsername(name_ET.getText().toString());
         } catch (Exception e) {
+            // Error converting to a string.
             Toast.makeText(this, e.toString(), Toast.LENGTH_LONG).show();
         }
+
         // Create the new intent from the questions activity
         Intent intent = new Intent(this, QuestionsActivity.class);
         // Send the user's username to the new intent

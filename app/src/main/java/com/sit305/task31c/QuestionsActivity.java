@@ -16,6 +16,7 @@ import java.util.ArrayList;
 public class QuestionsActivity extends AppCompatActivity {
 
     // All the views.
+    TextView nameHolder_TV;
     ProgressBar progressBar;
     TextView progress_TV;
     TextView question_TV;
@@ -38,7 +39,6 @@ public class QuestionsActivity extends AppCompatActivity {
     // Logic of if a answer has been submitted.
     private boolean answerSubmitted;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,8 +58,8 @@ public class QuestionsActivity extends AppCompatActivity {
         listOfQuestions = Constants.getQuestionsList();
 
         // Set the welcome message.
-        TextView nameHolder_TV = findViewById(R.id.nameHolder_TV);
-        nameHolder_TV.setText("Welcome " + Constants.dataList.get(0));
+        nameHolder_TV = findViewById(R.id.nameHolder_TV);
+        nameHolder_TV.setText("Welcome " + Constants.dataList.get(0) + "!");
 
         // Build the questions.
         buildQuestions();
@@ -146,6 +146,9 @@ public class QuestionsActivity extends AppCompatActivity {
                 submit_next_BTN.setText("Submit");
                 // Answers shown back to false
                 answersShown = false;
+                // Remove the welcome message. (As it's only shown on the first question)
+                nameHolder_TV.setText("");
+
             }
         }
         else {
@@ -173,14 +176,14 @@ public class QuestionsActivity extends AppCompatActivity {
             answersShown = true;
 
             // If it's the last question show finish.
-            if (currentPosition == listOfQuestions.size()) {
+            //if (currentPosition == listOfQuestions.size()) {
                 // Finish Button.
-                submit_next_BTN.setText("Finish"); // TODO Task sheet says this should just be next when on the last question.
-            }
-            else {
+             //   submit_next_BTN.setText("Finish"); // TODO Task sheet says this should just be next when on the last question.
+            //}
+            //else {
                 // Show the next question text.
                 submit_next_BTN.setText("Next");
-            }
+            //}
         }
     }
 
