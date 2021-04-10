@@ -5,6 +5,7 @@ import androidx.core.content.ContextCompat;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.os.Bundle;
@@ -20,7 +21,7 @@ public class QuestionsActivity extends AppCompatActivity {
     TextView option_one_TV;
     TextView option_two_TV;
     TextView option_three_TV;
-
+    Button submit_next_BTN;
 
     // To hold the current pos of the list of questions.
     private int currentPosition = 1;
@@ -28,6 +29,13 @@ public class QuestionsActivity extends AppCompatActivity {
     private int selectedOpt = 0;
     // The list of questions.
     private ArrayList<Question> listOfQuestions = null;
+    // Hold the user's score.
+    private int currentScore;
+    // Logic of if the answers have been shown.
+    private boolean answersShown;
+    // Logic of if a answer has been submitted.
+    private boolean answerSubmitted;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +50,7 @@ public class QuestionsActivity extends AppCompatActivity {
         option_one_TV = findViewById(R.id.option_one_TV);
         option_two_TV = findViewById(R.id.option_two_TV);
         option_three_TV = findViewById(R.id.option_three_TV);
+        submit_next_BTN = findViewById(R.id.submit_next_BTN);
 
         // Get and build the list of questions.
         listOfQuestions = Constants.getQuestionsList();
@@ -55,12 +64,8 @@ public class QuestionsActivity extends AppCompatActivity {
     }
 
     private void buildQuestions() {
-
         // Clear the current selection.
         clearSelectedOpts();
-
-        // Current question.
-        currentPosition = 1;
 
         // Hold the current question being asked.
         Question question = listOfQuestions.get(currentPosition - 1);
@@ -79,6 +84,11 @@ public class QuestionsActivity extends AppCompatActivity {
 
     // Used when a option is selected to show that the option was selected.
     public void onOptClick(View view) {
+        // If a answer has already been submitted, it can't be changed.
+        if (answerSubmitted) {
+            return;
+        }
+
         // First clear all options so they look unselected.
         clearSelectedOpts();
 
@@ -108,6 +118,64 @@ public class QuestionsActivity extends AppCompatActivity {
         }
     }
 
+    public void onSubmitBTNClick(View view) {
+        // If the answers have been show, move to the next question if more exist.
+        if (answersShown) {
+            // If the current question num is the same as the size of list finish the quiz.
+            if (currentPosition == listOfQuestions.size())
+            {
+                // Finish the quiz.
+                // Intent to finish page.
+            }
+            else{
+                // Move to next question.
+                currentPosition++;
+                // Build the new questions.
+                buildQuestions();
+                // Reset the submitted answer logic
+                answerSubmitted = false;
+                // Reset the button text.
+                submit_next_BTN.setText("Submit");
+                // Answers shown back to false
+                answersShown = false;
+            }
+        }
+        else {
+            // Answer submitted therefor a new one can't be selected and submitted.
+            answerSubmitted = true;
+
+            // Get the current on screen question.
+            Question question = listOfQuestions.get(currentPosition - 1);
+
+            // Correct answer.
+            if (selectedOpt == question.correctAnswer)
+            {
+                // Add to the user's score
+                currentScore++;
+            }
+            else {
+                // Incorrect Answer (color the selected answer red)
+                changeOptDesign(selectedOpt, R.drawable.incorrect_option_btn_shape_borders);
+            }
+
+            // Show the correct answer in green regardless if selected or not.
+            changeOptDesign(question.correctAnswer, R.drawable.correct_option_btn_shape_borders);
+
+            // Answers have been shown.
+            answersShown = true;
+
+            // If it's the last question show finish.
+            if (currentPosition == listOfQuestions.size()) {
+                // Finish Button.
+                submit_next_BTN.setText("Finish"); // TODO Task sheet says this should just be next when on the last question.
+            }
+            else {
+                // Show the next question text.
+                submit_next_BTN.setText("Next");
+            }
+        }
+    }
+
     private void selectOpt(TextView selected_TV, int selectedOptNum) {
         // Set the selected option
         selectedOpt = selectedOptNum;
@@ -126,6 +194,9 @@ public class QuestionsActivity extends AppCompatActivity {
         // Create a new list of the options.
         ArrayList<TextView> options = new ArrayList<TextView>();
 
+        // Clear the current selected option.
+        selectedOpt = 0;
+
         // All options to the list.
         options.add(0, option_one_TV);
         options.add(1, option_two_TV);
@@ -135,6 +206,21 @@ public class QuestionsActivity extends AppCompatActivity {
         for (TextView option : options) {
             option.setTextColor(Color.parseColor("#7A8089"));
             option.setBackground(ContextCompat.getDrawable(this, R.drawable.options_btn_shape_borders));
+        }
+    }
+
+    private void changeOptDesign(int optionIndex, int drawableInt) {
+        switch (optionIndex) {
+            case 1:
+                option_one_TV.setBackgroundResource(drawableInt);
+                break;
+            case 2:
+                option_two_TV.setBackgroundResource(drawableInt);
+                break;
+            case 3:
+                option_three_TV.setBackgroundResource(drawableInt);
+                break;
+
         }
     }
 }
