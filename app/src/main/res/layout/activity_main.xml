@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
+    android:gravity="top"
     android:orientation="vertical"
     android:background="@color/backGroundColor"
     tools:context=".MainActivity">
@@ -13,10 +13,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="vertical"
-        android:padding="16dp"
-        >
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="SIT305 Quiz App"
+            android:textSize="36sp"
+            android:textColor="@color/black"
+            >
+        </TextView>
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -29,25 +44,31 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:text="Enter your name: "
+                android:textSize="18sp"
+                android:textColor="@color/black"
                 >
-            </TextView>
 
+            </TextView>
             <EditText
                 android:id="@+id/user_name_field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/black"
                 >
             </EditText>
         </LinearLayout>
 
         <Button
             android:id="@+id/btn_start"
-            android:layout_width="236dp"
+            android:layout_width="wrap_content"
+            android:minWidth="240dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:gravity="center"
-            android:background="@color/design_default_color_primary"
+            android:background="@drawable/options_btn_shape_borders"
             android:text="Start"
             android:textStyle="bold"
             android:textSize="24sp"
@@ -55,6 +76,5 @@
             android:onClick="startGame"
             >
         </Button>
-
     </LinearLayout>
 </LinearLayout>

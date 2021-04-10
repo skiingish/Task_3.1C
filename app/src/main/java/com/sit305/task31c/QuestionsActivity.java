@@ -127,7 +127,7 @@ public class QuestionsActivity extends AppCompatActivity {
             if (currentPosition == listOfQuestions.size())
             {
                 // Finish the quiz.
-                // Intent to finish page.
+
                 // Create the new intent from the questions activity
                 Intent intent = new Intent(this, FinishedQuizActivity.class);
                 intent.putExtra("Score", currentScore);
@@ -188,12 +188,8 @@ public class QuestionsActivity extends AppCompatActivity {
         // Set the selected option
         selectedOpt = selectedOptNum;
 
-        // Create a typeface from the current one.
-        Typeface tf  = selected_TV.getTypeface();
-
         // Set the design of the selected option.
         selected_TV.setTextColor(Color.parseColor("#363A43"));
-        selected_TV.setTypeface(tf, Typeface.BOLD);
         selected_TV.setBackground(ContextCompat.getDrawable(this, R.drawable.options_selected_btn_shape_borders));
     }
 

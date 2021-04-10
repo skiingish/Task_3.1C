@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="15dp"
-            android:textColorHint="#7A8089"
+            android:textColor="#7A8089"
             android:textSize="14sp"
              />
 
