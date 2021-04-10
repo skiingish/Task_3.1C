@@ -15,6 +15,10 @@ public interface Constants {
     // Public static method to build and return the list of quiz questions
     static ArrayList<Question> getQuestionsList() {
 
+        // If the question list has already been built clear it before rebuild.
+        if (questionsList.size() > 0) {
+            questionsList.clear();
+        }
 
         // Create question 1 from a question object
         Question question1 = new Question(
@@ -72,6 +76,11 @@ public interface Constants {
 
     // Add the username to string data list.
     static void updateUsername(String usernameInput) {
+        // If the datalist has already been created clear first.
+        if (dataList.size() > 0) {
+            dataList.clear();
+        }
+        // Add the Username
         dataList.add(usernameInput);
     }
 }

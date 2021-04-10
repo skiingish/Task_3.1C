@@ -2,6 +2,8 @@ package com.sit305.task31c;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.view.View;
@@ -126,6 +128,12 @@ public class QuestionsActivity extends AppCompatActivity {
             {
                 // Finish the quiz.
                 // Intent to finish page.
+                // Create the new intent from the questions activity
+                Intent intent = new Intent(this, FinishedQuizActivity.class);
+                intent.putExtra("Score", currentScore);
+                intent.putExtra("NumOfQuestions", listOfQuestions.size());
+                startActivity(intent);
+                finish();
             }
             else{
                 // Move to next question.
