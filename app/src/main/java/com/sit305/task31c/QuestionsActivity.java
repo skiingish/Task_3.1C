@@ -77,7 +77,7 @@ public class QuestionsActivity extends AppCompatActivity {
         progress_TV.setText(currentPosition + "/" + progressBar.getMax());
 
         // Set the different question elements of the current question.
-        questionTitle_TV.setText("Question Title: " + question.questionTitle);
+        questionTitle_TV.setText(question.questionTitle);
         question_TV.setText(question.question);
         option_one_TV.setText(question.optionOne);
         option_two_TV.setText(question.optionTwo);
