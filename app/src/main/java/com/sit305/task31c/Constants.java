@@ -44,16 +44,16 @@ public interface Constants {
         // Create question 4 from a question object
         Question question4 = new Question(
                 3, "Question 4 - Intent",
-                "Question it's self?",
-                "Answer1", "Answer2",
-                "Answer3", 3);
+                "An Intent can be described as:",
+                "A operation to be performed", "A operation that has been completed",
+                "A space between indented text", 1);
 
         // Create question 5 from a question object
         Question question5 = new Question(
-                4, "Question 5- (2)",
-                "Question it's self?",
-                "Answer1", "Answer2",
-                "Answer3", 3);
+                4, "Question 5 - Android Architecture",
+                "What type of kernel does Android use?",
+                "XNU kernel ", "A Linux kernel",
+                "Windows NT kernel", 2);
 
         // Add questions to the list of questions.
         questionsList.add(question1);
