@@ -26,9 +26,10 @@ public class MainActivity extends AppCompatActivity {
             name_ET.setText(Constants.dataList.get(0));
         }
     }
+
     // Start the game by pressing the start button.
     public void startGame(View view) {
-        // Get and set (Or update) the quiz taker's user name value.
+        // Get and set (or update) the quiz taker's user name value.
         try {
             Constants.updateUsername(name_ET.getText().toString());
         } catch (Exception e) {
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Create the new intent from the questions activity
         Intent intent = new Intent(this, QuestionsActivity.class);
-        // Send the user's username to the new intent
+        // Send the user's username.
         intent.putExtra("username", name_ET.getText().toString());
         // Start the questions activity
         startActivity(intent);
