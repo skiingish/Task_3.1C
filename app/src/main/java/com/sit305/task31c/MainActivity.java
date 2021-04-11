@@ -33,8 +33,8 @@ public class MainActivity extends AppCompatActivity {
         try {
             Constants.updateUsername(name_ET.getText().toString());
         } catch (Exception e) {
-            // Error converting to a string.
-            Toast.makeText(this, e.toString(), Toast.LENGTH_LONG).show();
+            // Error converting to a string. (Show a error message).
+            Toast.makeText(this, "Error inputting user name - " + e.toString(), Toast.LENGTH_LONG).show();
         }
 
         // Create the new intent from the questions activity

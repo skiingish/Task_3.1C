@@ -65,6 +65,7 @@ public class QuestionsActivity extends AppCompatActivity {
         buildQuestions();
     }
 
+    // Used to build questions at the current position within the quiz.
     private void buildQuestions() {
         // Clear the current selection.
         clearSelectedOpts();
@@ -74,7 +75,7 @@ public class QuestionsActivity extends AppCompatActivity {
 
         // Update the progress bar.
         progressBar.setProgress(currentPosition);
-        progress_TV.setText(currentPosition + "/" + progressBar.getMax());
+        progress_TV.setText(currentPosition + "/" + listOfQuestions.size());
 
         // Set the different question elements of the current question.
         questionTitle_TV.setText(question.questionTitle);
@@ -120,6 +121,7 @@ public class QuestionsActivity extends AppCompatActivity {
         }
     }
 
+    // When the user clicks on the submit/next button, show answers, add to the score, and/or move to the next question.
     public void onSubmitBTNClick(View view) {
         // If the answers have been show, move to the next question if more exist.
         if (answersShown) {
@@ -187,6 +189,7 @@ public class QuestionsActivity extends AppCompatActivity {
         }
     }
 
+    //  Show the passed selected quiz option as selected and set selected opt number.
     private void selectOpt(TextView selected_TV, int selectedOptNum) {
         // Set the selected option
         selectedOpt = selectedOptNum;
@@ -216,6 +219,7 @@ public class QuestionsActivity extends AppCompatActivity {
         }
     }
 
+    // Used to change the design of the passed selected option with the passed required drawable.
     private void changeOptDesign(int optionIndex, int drawableInt) {
         switch (optionIndex) {
             case 1:
@@ -227,7 +231,6 @@ public class QuestionsActivity extends AppCompatActivity {
             case 3:
                 option_three_TV.setBackgroundResource(drawableInt);
                 break;
-
         }
     }
 }
